@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manish Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0a0f1c;
+  color: white;
+  scroll-behavior: smooth;
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+  position: sticky;
+  top: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero h1 span {
+  background: linear-gradient(90deg,#a855f7,#22c55e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn {
+  padding: 12px 25px;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.primary { background:#a855f7; color:white; border:none;}
+.outline { border:1px solid #a855f7; background:transparent; color:white;}
+.download { border:1px solid #22c55e; color:#22c55e; background:transparent;}
+
+/* SECTION */
+section {
+  padding: 80px 50px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* EDUCATION */
+.card {
+  background: #111827;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 15px;
+  max-width: 700px;
+  border: 1px solid #333;
+}
+
+/* PROJECTS */
+.projects {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.project-card {
+  width: 250px;
+  background: #111827;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+/* SKILLS */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.skill-box {
+  background: #111827;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+/* CONTACT */
+.contact-box {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+}
+
+/* TIMELINE */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: #555;
+}
+
+/* EDUCATION CARD */
+.edu-card {
+  position: relative;
+  background: #111827;
+  padding: 20px;
+  margin: 30px 0 30px 50px;
+  border-radius: 15px;
+  border: 1px solid #333;
+}
+
+/* DOT */
+.edu-card::before {
+  content: '';
+  position: absolute;
+  left: -32px;
+  top: 20px;
+  width: 12px;
+  height: 12px;
+  background: #a855f7;
+  border-radius: 50%;
+}
+
+/* BADGE */
+.badge {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 12px;
+  border: 1px solid #22c55e;
+  color: #22c55e;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+/* DATE */
+.date {
+  float: right;
+  color: #aaa;
+  font-size: 14px;
+}
+
+/* LOCATION */
+.location {
+  display: block;
+  color: #888;
+  font-size: 14px;
+}
+
+.contact-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact-card {
+  background: rgba(17,24,39,0.7);
+  padding: 25px;
+  width: 250px;
+  border-radius: 15px;
+  text-align: center;
+  border: 1px solid #333;
+  transition: 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.contact-card i {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: #a855f7;
+}
+
+.contact-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px #a855f7;
+}
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.skill-card {
+  background: rgba(17,24,39,0.6);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid #222;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+  position: relative;
+}
+
+/* Glow Border */
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px #a855f7;
+}
+
+/* Title */
+.skill-card h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tags span {
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #0f172a;
+  border: 1px solid #333;
+  font-size: 13px;
+}
+
+/* Different Color Borders */
+.skill-card:nth-child(1):hover { box-shadow: 0 0 20px #22c55e; }
+.skill-card:nth-child(2):hover { box-shadow: 0 0 20px #a855f7; }
+.skill-card:nth-child(3):hover { box-shadow: 0 0 20px #3b82f6; }
+.skill-card:nth-child(4):hover { box-shadow: 0 0 20px #14b8a6; }
+
+.achieve-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.achieve-card {
+  width: 300px;
+  padding: 25px;
+  background: rgba(17,24,39,0.6);
+  border-radius: 15px;
+  border: 1px solid #222;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+/* Highlight Center Card */
+.highlight {
+  border: 1px solid #3b82f6;
+  box-shadow: 0 0 20px #3b82f6;
+}
+
+/* Hover */
+.achieve-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px #a855f7;
+}
+
+/* Platform Colors */
+.platform {
+  display: inline-block;
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.purple { color: #a855f7; }
+.blue { color: #3b82f6; }
+.yellow { color: #facc15; }
+h2::after {
+  content: '';
+  width: 60px;
+  height: 4px;
+  background: #facc15;
+  display: block;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+.projects-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  width: 300px;
+  background: rgba(17,24,39,0.6);
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid #222;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+/* Image */
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Content */
+.project-content {
+  padding: 20px;
+}
+
+/* Hover */
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px #a855f7;
+}
+
+/* Tags */
+.tags {
+  margin: 10px 0;
+}
+
+.tags span {
+  background: #0f172a;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin-right: 5px;
+  font-size: 12px;
+}
+
+/* Button */
+.project-content .btn {
+  margin-top: 10px;
+}
+.project-card:hover {
+  box-shadow: 0 0 30px #a855f7, 0 0 10px #22c55e;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 50px auto 0;
+  padding: 30px;
+  background: rgba(17,24,39,0.6);
+  border-radius: 15px;
+  border: 1px solid #222;
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.contact-form h3 {
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #333;
+  background: #0f172a;
+  color: white;
+  outline: none;
+}
+
+/* Focus Effect */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border: 1px solid #a855f7;
+}
+
+/* Button */
+.contact-form .btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Hover Glow */
+.contact-form:hover {
+  box-shadow: 0 0 20px #a855f7;
+}
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #a855f7;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <h2>MK</h2>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#Achievements">Achievements</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <p>HELLO, I'M</p>
+  <h1>Manish Kumar <span>Shrivastav</span></h1>
+  <h2>Python Developer</h2>
+  <p>Computer Science Engineering student passionate about Data Science,</p>
+  <p> Machine Learning, and intelligent systems.</p>
+
+  <a href="#projects"><button class="btn primary">View Projects</button></a>
+  <a href="#contact"><button class="btn outline">Contact</button></a>
+  <a href="resume.pdf" download><button class="btn download">Download CV</button></a>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <h2>Education</h2>
+
+  <div class="timeline">
+
+    <!-- College -->
+    <div class="edu-card">
+      <h3>Lovely Professional University</h3>
+      <p>B.Tech Computer Science & Engineering</p>
+      <span class="location">Punjab, India</span>
+      <span class="date">2023 - Present</span>
+      <div class="badge">CGPA: 6.77</div>
+    </div>
+
+    <!-- 12th -->
+    <div class="edu-card">
+      <h3>Darshan Academy School</h3>
+      <p>Intermediate</p>
+      <span class="location">India</span>
+      <span class="date">2021 - 2022</span>
+      <div class="badge">83%</div>
+    </div>
+
+    <!-- 10th -->
+    <div class="edu-card">
+      <h3>Smart Convent high School</h3>
+      <p>Matriculation</p>
+      <span class="location">India</span>
+      <span class="date">2019 - 2020</span>
+      <div class="badge">94%</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="projects-container">
+
+    <!-- Project 1 -->
+    <div class="project-card">
+      <div class="project-content">
+        <h3>Online Auction System</h3>
+        <p>Django based auction platform with bidding system.</p>
+
+        <div class="tags">
+          <span>Python</span>
+          <span>Django</span>
+        </div>
+
+        <div class="buttons">
+          <a href="#"><button class="btn primary">View Code</button></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card">
+      <div class="project-content">
+        <h3>Data Dashboard</h3>
+        <p>Power BI dashboard for data visualization.</p>
+
+        <div class="tags">
+          <span>Power BI</span>
+          <span>Analytics</span>
+        </div>
+
+        <div class="buttons">
+          <a href="#"><button class="btn primary">View Code</button></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Skills</h2>
+
+  <div class="skills-container">
+
+    <!-- Programming -->
+    <div class="skill-card">
+      <h3>Programming Languages</h3>
+      <div class="tags">
+        <span>C++</span>
+        <span>Python</span>
+        <span>Java</span>
+        <span>C</span>
+      </div>
+    </div>
+
+    <!-- Data Processing -->
+    <div class="skill-card">
+      <h3>Data Processing & Analysis</h3>
+      <div class="tags">
+        <span>EDA</span>
+        <span>Data Preprocessing</span>
+        <span>Feature Engineering</span>
+        <span>Visualization</span>
+        <span>Statistics</span>
+      </div>
+    </div>
+
+    <!-- Tools -->
+    <div class="skill-card">
+      <h3>Tools & IDEs</h3>
+      <div class="tags">
+        <span>MySQL</span>
+        <span>Power BI</span>
+        <span>Excel</span>
+        <span>Git</span>
+        <span>GitHub</span>
+        <span>VS Code</span>
+      </div>
+    </div>
+
+    <!-- Data Science -->
+    <div class="skill-card">
+      <h3>Data Science</h3>
+      <div class="tags">
+        <span>Pandas</span>
+        <span>NumPy</span>
+        <span>Matplotlib</span>
+        <span>Seaborn</span>
+        <span>Scikit-learn</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="achievements">
+  <h2>Achievements</h2>
+
+  <div class="achieve-container">
+
+    <div class="achieve-card">
+      <h3>Solved 150+ Problems</h3>
+      <span class="platform purple">LeetCode</span>
+      <p>Maintained a coding streak and solved 150+ DSA problems.</p>
+    </div>
+
+    <div class="achieve-card highlight">
+      <h3>Solved 120+ Problems</h3>
+      <span class="platform blue">GeeksForGeeks</span>
+      <p>Practiced data structures & algorithms with 120+ problems.</p>
+    </div>
+
+    <div class="achieve-card">
+      <h3>4-Star Gold Badges</h3>
+      <span class="platform yellow">HackerRank</span>
+      <p>Earned badges in Problem Solving, C++, and Python.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+
+  <div class="contact-container">
+
+    <div class="contact-card">
+      <i class="fas fa-envelope"></i>
+      <h4>Email</h4>
+      <p>shrivastavmanish91@gmail.com</p>
+    </div>
+
+    <div class="contact-card">
+      <i class="fas fa-phone"></i>
+      <h4>Phone</h4>
+      <p>+91 8567083008</p>
+    </div>
+
+    <div class="contact-card">
+      <i class="fab fa-github"></i>
+      <h4>GitHub</h4>
+      <p>https://github.com/</p>
+    </div>
+
+    <div class="contact-card">
+      <i class="fab fa-linkedin"></i>
+      <h4>LinkedIn</h4>
+      <p>https://www.linkedin.com/in/manish</p>
+       <p>-kumar-shrivastav-0954b5298</p>
+    </div>
+
+  </div>
+<div class="contact-form">
+
+  <h3>Send Message</h3>
+
+  <form action="https://formspree.io/f/yourformid" method="POST">
+
+    <input type="text" name="name" placeholder="Your Name" required>
+
+    <input type="email" name="email" placeholder="Your Email" required>
+
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+
+    <button type="submit" class="btn primary">Send Message</button>
+
+  </form>
+
+</div>
+</section>
+
+<footer class="footer">
+  <div class="footer-left">
+    <h3>MK</h3>
+    <p>Manish Kumar</p>
+    <span>Data Science</span>
+  </div>
+
+  <div class="footer-center">
+    <a href="#projects">Web Projects</a>
+    <a href="#skills">Data Science</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <div class="footer-right">
+    <i class="fab fa-github"></i>
+    <i class="fab fa-linkedin"></i>
+    <i class="fas fa-envelope"></i>
+  </div>
+</footer>
+<footer>
+  <p>© 2026 Manish Portfolio</p>
+</footer>
+
+</body>
+</html>
